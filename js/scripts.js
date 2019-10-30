@@ -1,15 +1,17 @@
 //Business Logic
-var vowels = ["a","i","o","u","e"];
 
 var pigLatin = function(letters, vowels){
+  console.log('hello');
   var newArray = [];
+console.log(letters[0] === vowels)
 do{
   var joinedLetters =  letters.join('')
   newArray.push(joinedLetters + 'ay');
 // console.log(letters)
-} while(letters[0] === vowels);
+} while(vowels.includes(letters[0]));
+// } while(letters[0] === vowels);
 
-return newArray;
+  return newArray;
 
 }
 
@@ -18,6 +20,7 @@ return newArray;
 $(document).ready(function () {
   $('form#wordForm').submit(function(event){
     var word = $('input#wordInput').val();
+    var vowels = ["a","i","o","u","e"];
     var letters = word.split('');
     var newArray = pigLatin(letters, vowels);
 
