@@ -27,3 +27,4 @@
 * #### The program recognizes "qu" and "squ" as a consonants.
   - Example Input: squish
   - Example Output: ishsquay
+ÂÂÂÂ

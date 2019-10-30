@@ -1,43 +1,29 @@
 //Business Logic
+var vowels = ["a","i","o","u","e"];
 
-var pigLatin = function(words, vowels){
+var pigLatin = function(letters, vowels){
   var newArray = [];
+do{
+  var joinedLetters =  letters.join('')
+  newArray.push(joinedLetters + 'ay');
+// console.log(letters)
+} while(letters[0] === vowels);
 
-  words.forEach(function(word){
-    vowels.forEach(function(vowel, i){
-      // console.log(i);
-
-      if (word[0] === vowel[i]){
-        console.log(words);
-        var result = words.join('')
-        // console.log(testVar);
-
-        newArray.push(result + 'ay');
-        // newArray.join('')
-      } else {
-        // console.log(word);
-        // console.log(vowel);
-      }
-    });
-  });
-  return newArray;
-  console.log("function newArray:", newArray);
+return newArray;
 
 }
 
 
 //UI
 $(document).ready(function () {
-  $('form#sentenceForm').submit(function(event){
-    var sentence = $('input#sentenceInput').val();
-    var splitWord = sentence.split('');
-    var vowels = ["a","i","o","u","e"];
-    var newArray = pigLatin(splitWord, vowels);
+  $('form#wordForm').submit(function(event){
+    var word = $('input#wordInput').val();
+    var letters = word.split('');
+    var newArray = pigLatin(letters, vowels);
 
 
-    console.log("split word: ", splitWord);
+    console.log("split letter: ", letters);
     console.log("newArray:" , newArray);
-    console.log(typeof newArray);
     event.preventDefault();
   });
 });
