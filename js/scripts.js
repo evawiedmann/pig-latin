@@ -1,40 +1,43 @@
-// function addAy(word) {
-//
-// }
+//Business Logic
+
+var pigLatin = function(words, vowels){
+  var newArray = [];
+
+  words.forEach(function(word){
+    vowels.forEach(function(vowel, i){
+      // console.log(i);
+
+      if (word[0] === vowel[i]){
+        console.log(words);
+        var result = words.join('')
+        // console.log(testVar);
+
+        newArray.push(result + 'ay');
+        // newArray.join('')
+      } else {
+        // console.log(word);
+        // console.log(vowel);
+      }
+    });
+  });
+  return newArray;
+  console.log("function newArray:", newArray);
+
+}
 
 
+//UI
 $(document).ready(function () {
   $('form#sentenceForm').submit(function(event){
     var sentence = $('input#sentenceInput').val();
     var splitWord = sentence.split('');
     var vowels = ["a","i","o","u","e"];
-    splitWord.forEach(function(word, vowels){
-      var newArray = []
-      vowels.forEach(function(vowel, i){
-        if (word[0] === vowel[i]){
-          newArray.push('ay');
-        }
-        return newArray;
+    var newArray = pigLatin(splitWord, vowels);
 
-    });
-    });
-    // for (var i = 0; i < splitWord.length; i++) {
-    //   if (splitWord[0] === "a", "i", "o", "u", "e") {
-    //      var addAy = splitWord.append('ay');
-    //   }
-    //   return addAy;
-    // }
-    console.log(newArray);
+
+    console.log("split word: ", splitWord);
+    console.log("newArray:" , newArray);
+    console.log(typeof newArray);
     event.preventDefault();
   });
 });
-
-
-// function alphaOnly(event) {
-//   var key = event.keyCode;
-//   if ((key >= 65 && key <= 90) || key == 8){
-//     return true;
-//   } else {
-//     return false
-//   }
-// }
